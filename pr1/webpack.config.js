@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
 
@@ -9,8 +10,8 @@ module.exports = {
 
   //번들링 파일 출력 위치 지정(출력)
   output: {
-    path: path.resolve(__dirname, 'dist/bundle/'), //안전한 경로를 위해 path사용
-    filename: 'bundle.js', //번들된 파일명
+    path: path.resolve(__dirname, 'dist/'), //안전한 경로를 위해 path사용
+    filename: '[name].[chunkhash].js', //번들된 파일명
   },
 
   module: {
@@ -30,6 +31,7 @@ module.exports = {
   },
 
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),
     }),

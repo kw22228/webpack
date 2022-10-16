@@ -18,7 +18,7 @@
     -   css-loader
     -   sass-loader
 
-    -   html-webpack-plugin
+    -   html-webpack-plugin [template파일(html)에 js를 자동주입해준다]
     -   mini-css-extract-plugin
     -   clean-webpack-plugin
 
