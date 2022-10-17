@@ -18,3 +18,5 @@ npm install {플러그인} --save-dev
 
 -   eslint-config-airbnb
 -   eslint-config-prettier
+-   eslint-plugin-import
+-   eslint-plugin-html

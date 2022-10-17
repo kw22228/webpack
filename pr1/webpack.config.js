@@ -1,12 +1,23 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-module.exports = {
-  mode: 'development',
+const webpack = require('webpack');
 
-  devtool: 'source-map',
+module.exports = {
+  mode: 'development', //production
+
+  devtool: 'eval', //source-map || hidden-source-map
 
   entry: './src/main.js', //번들될 파일 (입력)
+
+  //데브 서버 활성화
+  //   devServer: {
+  //     historyApiFallback: true,
+  //     inline: true,
+  //     port: 3000,
+  //     hot: true,
+  //     publicPath: '/',
+  //   },
 
   //번들링 파일 출력 위치 지정(출력)
   output: {
@@ -30,7 +41,15 @@ module.exports = {
     ],
   },
 
+  resolve: {
+    extensions: ['.js'], //['.js','.jsx','.ts', '.tsx']
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html'),

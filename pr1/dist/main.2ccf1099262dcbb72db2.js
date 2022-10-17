@@ -139,7 +139,7 @@ var __webpack_exports__ = {};
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib */ "./src/lib.js");
+/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/lib */ "./src/lib.js");
 
 console.log(_lib__WEBPACK_IMPORTED_MODULE_0__.pi);
 console.log((0,_lib__WEBPACK_IMPORTED_MODULE_0__.power)(_lib__WEBPACK_IMPORTED_MODULE_0__.pi, _lib__WEBPACK_IMPORTED_MODULE_0__.pi));
@@ -151,4 +151,4 @@ console.log(f["private"]);
 
 /******/ })()
 ;
-//# sourceMappingURL=main.b87709aea771b48228e6.js.map
+//# sourceMappingURL=main.2ccf1099262dcbb72db2.js.map

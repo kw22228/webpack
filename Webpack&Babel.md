@@ -15,12 +15,23 @@
     -   babel-loader
     -   ts-loader
     -   file-loader
+    -   url-loader
     -   css-loader
     -   sass-loader
 
     -   html-webpack-plugin [template파일(html)에 js를 자동주입해준다]
+    -   clean-webpack-plugin [webpack 실행시 output(./dist)폴더를 정리후 실행한다]
     -   mini-css-extract-plugin
-    -   clean-webpack-plugin
+
+    -   webpack.HotModuleReplacementPlugin() [HMR을 활성화, devServer.Hot옵션까지 써줘야 브라우저가 자동으로 reload]
+
+---
+
+### 실행 옵션
+
+-   --mode : "development" || "production" || "none"
+-   --entry: 모듈의 시작시점
+-   --output: 번들된 결과를 출력하는 옵션
 
 ---
 
