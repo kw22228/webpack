@@ -1,2 +1,9 @@
-import { sum } from './math';
-console.log(sum(1, 2));
+// import { sum } from './math';
+// console.log(sum(1, 2));
+
+import './app.css';
+import nyancat from './nyancat.jpg';
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.innerHTML = `<img src="${nyancat}" />`;
+});

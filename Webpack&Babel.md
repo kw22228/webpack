@@ -14,9 +14,15 @@
 
     -   babel-loader
     -   ts-loader
-    -   file-loader
-    -   url-loader
-    -   css-loader
+
+    https://webpack.kr/guides/asset-modules/
+
+    -   file-loader [webpack5 부터 asset모듈로 바뀜]
+    -   url-loader [webpack5 부터 asset모듈로 바뀜]
+    -   asset 로더 : webpack5부터 추가
+
+    -   css-loader [javascript에서 모듈로 css파일을 불러온다.]
+    -   style-loader [javascript로 변경된 css코드를 html에 넣어주는 로더 (head부분에 inline으로 넣어줌)]
     -   sass-loader
 
     -   html-webpack-plugin [template파일(html)에 js를 자동주입해준다]
