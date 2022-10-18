@@ -9,7 +9,7 @@ module.exports = {
     mode: 'development',
 
     entry: {
-        main: './src/app.js', //key가 filename의 [name]으로
+        main: './app.js', //key가 filename의 [name]으로
     },
     output: {
         path: path.resolve(__dirname, 'dist/'),
@@ -54,6 +54,13 @@ module.exports = {
                 //     },
                 // ],
                 // type: 'javascript/auto', //애셋을 중복으로 처리하지 않도록함
+            },
+            {
+                test: /\.(js)$/,
+                use: {
+                    loader: 'babel-loader',
+                },
+                exclude: /node_modules/,
             },
         ],
     },

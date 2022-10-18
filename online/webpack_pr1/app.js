@@ -1,2 +1,4 @@
-const alert = msg => window.alert(msg);
-let a = 'aaa';
+new Promise();
+
+// const alert = msg => window.alert(msg);
+// let a = 'aaa';

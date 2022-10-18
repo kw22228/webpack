@@ -28,7 +28,8 @@
 
         -   css-loader : javascript에서 모듈로 css파일을 불러온다.
         -   style-loader : javascript로 변경된 css코드를 html에 넣어주는 로더 (head부분에 inline으로 넣어줌)
-        -   sass-loader
+        -   sass-loader : https://github.com/webpack-contrib/sass-loader
+        -   node-sass : sass코드를 css로 변형해줌
 
     -   플러그인
 
@@ -62,6 +63,11 @@
 
     -   ES6+ / ES.NEXT 소스코드를 IE같은 구형 브라우저에서도 동작할 수 있도록 바꿔줌
 
+-   폴리필
+
+    -   바벨 폴리필 또는 corejs를 사용한다. (babel.config.js) 확인
+    -   corejs를 사용하기위해서 npm에서 설치해야함 (없으면 빌드시 오류)
+
 -   설치 플러그인 (npm install {플러그인} --save-dev)
 
     -   @babel/cli [babel이 실행될 수 있는 환경을 만들어줌]
@@ -71,4 +77,6 @@
     -   @babel/preset-typescript [typescript에 대한 플러그인]
 
 -   사용법
-    -   babel.config.json 파일 생성
+    1.  babel.config.json 파일 생성
+    2.  babel 플러그인 또는 프리셋 설정
+    3.  npx babel app.js
