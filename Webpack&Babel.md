@@ -41,6 +41,8 @@
         -   webpack.DefinePlugin : 환경 변수를 추가 할 수 있음.
         -   webpack.HotModuleReplacementPlugin() : HMR을 활성화, devServer.Hot옵션까지 써줘야 브라우저가 자동으로 reload
 
+        -   copy-webpack-plugin: webpack의 externals에 등록한 서드파티 라이브러리를 entry폴더에 따로 저장해줌 (index.html에 따로 script 저장해줘야함.)
+
 -   개발 서버 (devServer) https://jeonghwan-kim.github.io/series/2020/01/02/frontend-dev-env-webpack-intermediate.html
 
     -   설치
@@ -55,11 +57,27 @@
         -   historyApiFallBack: SPA 개발시, 404가 발생하면 index.html로 리다이렉트 해줌.
 
 -   최적화 (Optimization)
+
     -   minimizer
         -   css-minimizer-webpack-plugin : html-webpack-plugin처럼 html대신 css를 압축함. (optimization이라는 프로퍼티에 인스턴스 생성해줘야함)
         -   terser-webpack-plugin : js파일을 압축함
     -   splitChunks
         -   chunks: 'all' -> entry 포인트가 여러개일때 js들에 "중복된 코드"가있을수있는데 이것을 전부 제거해준다.
+
+-   다이나믹 임포트
+    엔트리 포인트를 여러개 준것처럼 빌드된다.
+
+-   externals (제외)
+    -   axios같은 서드파티 라이브러리는 node_modules에 있기때문에 빌드파일에서 제외하면 최적화 된다. (빌드할때 제외되기 때문에 copy-webpack-plugin을 써서 엔트리 포인트에 파일을 따로 복사해준다.)
+
+```javascript
+import(/* webpackChunkName: "math" */ './math.js').then(m => {
+    const sum = m.default;
+    const result = sum(1, 2);
+
+    document.body.innerHTML = result;
+});
+```
 
 ---
 

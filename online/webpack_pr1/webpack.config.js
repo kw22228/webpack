@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const apiMocker = require('connect-api-mocker');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
 
   entry: {
     main: './src/app.js', // key가 filename의 [name]으로
-    math: './src/math.js', // 코드 스플리팅 2개의 js를 로드한다.
+    // math: './src/math.js', // 코드 스플리팅 2개의 js를 로드한다.
   },
 
   output: {
@@ -68,9 +69,15 @@ module.exports = {
             new CssMinimizerWebpackPlugin(),
           ]
         : [],
-    splitChunks: {
-      chunks: 'all',
-    },
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
+  },
+
+  // 빌드를 할때 제외됨(서드파티 라이브러리는 이미 node_modules에 있기때문.)
+  // 빌드때 제외를 하기 때문에 copy-webpack-plugin으로 엔트리포인트에 저장해줌.
+  externals: {
+    axios: 'axios',
   },
 
   module: {
@@ -154,5 +161,13 @@ module.exports = {
           }),
         ]
       : []),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './node_modules/axios/dist/axios.min.js',
+          to: './axios.min.js',
+        },
+      ],
+    }),
   ],
 };
