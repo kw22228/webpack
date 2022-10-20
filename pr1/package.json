@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel src/*.js -d dist",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint src --fix",
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",

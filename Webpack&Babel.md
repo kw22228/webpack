@@ -41,6 +41,26 @@
         -   webpack.DefinePlugin : 환경 변수를 추가 할 수 있음.
         -   webpack.HotModuleReplacementPlugin() : HMR을 활성화, devServer.Hot옵션까지 써줘야 브라우저가 자동으로 reload
 
+-   개발 서버 (devServer) https://jeonghwan-kim.github.io/series/2020/01/02/frontend-dev-env-webpack-intermediate.html
+
+    -   설치
+        -   npm i -D webpack-dev-server
+    -   config 설정
+        -   contentBase: output으로 설정한 경로를 지정해주면됨.(dist)
+        -   publicPath: 브라우저로 통해 접근하는 경로. default "/"
+        -   host: 개발환경에서 도메인을 맞춰야할때 사용 (day.domain.com)
+        -   overlay: 빌드할때 오류를 터미널대신 브라우저에 출력해줌
+        -   port : 개발서버 포트를 설정. 기본값 8080
+        -   stats: 메세지의 수준을 정할수 있음 (none || errors-only || minimal || normal || verbose)
+        -   historyApiFallBack: SPA 개발시, 404가 발생하면 index.html로 리다이렉트 해줌.
+
+-   최적화 (Optimization)
+    -   minimizer
+        -   css-minimizer-webpack-plugin : html-webpack-plugin처럼 html대신 css를 압축함. (optimization이라는 프로퍼티에 인스턴스 생성해줘야함)
+        -   terser-webpack-plugin : js파일을 압축함
+    -   splitChunks
+        -   chunks: 'all' -> entry 포인트가 여러개일때 js들에 "중복된 코드"가있을수있는데 이것을 전부 제거해준다.
+
 ---
 
 ### 실행 옵션

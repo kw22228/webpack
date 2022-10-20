@@ -5,6 +5,10 @@ module.exports = {
     node: true,
   },
   extends: ['airbnb', 'plugin:prettier/recommended'],
+  globals: {
+    API_DOMAIN: true,
+    TWO: true,
+  },
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
