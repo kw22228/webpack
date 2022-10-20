@@ -1,4 +1,20 @@
-new Promise();
+const a = 1;
 
-// const alert = msg => window.alert(msg);
-// let a = 'aaa';
+function foo(a1) {
+  return a1;
+}
+
+foo(a);
+
+const b = 1;
+
+foo(b);
+
+const bar = function bar() {};
+
+foo(bar);
+
+let c = 1;
+c = 2;
+
+foo(c);
