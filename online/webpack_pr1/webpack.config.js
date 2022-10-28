@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const apiMocker = require('connect-api-mocker');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 module.exports = {
@@ -128,6 +128,18 @@ module.exports = {
     ],
   },
 
+  // resolve: {
+  //   extensions: ['.js'],
+  //   alias: {
+  //     '@': path.resolve(__dirname, 'src/'),
+  //     '@pages': path.resolve(__dirname, 'src/pages/'),
+  //     '@core': path.resolve(__dirname, 'src/core/'),
+  //     '@components': path.resolve(__dirname, 'src/components/'),
+  //     '@api': path.resolve(__dirname, 'src/api/'),
+  //     '@lib': path.resolve(__dirname, 'src/lib/'),
+  //   },
+  // },
+
   plugins: [
     new webpack.BannerPlugin({
       banner: `
@@ -161,13 +173,13 @@ module.exports = {
           }),
         ]
       : []),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: './node_modules/axios/dist/axios.min.js',
-          to: './axios.min.js',
-        },
-      ],
-    }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: './node_modules/axios/dist/axios.min.js',
+    //       to: './axios.min.js',
+    //     },
+    //   ],
+    // }),
   ],
 };
