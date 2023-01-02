@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/main.js',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js',
@@ -16,6 +16,13 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(ts)x?$/,
+                use: {
+                    loader: 'ts-loader',
+                },
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.(js)x?$/,
                 use: {
                     loader: 'babel-loader',
@@ -25,6 +32,6 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.jsx', '.js'], //뒤에 확장자를 생략해도댐
+        extensions: ['.jsx', '.js', '.tsx', 'ts'], //뒤에 확장자를 생략해도댐
     },
 };
